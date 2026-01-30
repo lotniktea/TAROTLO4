@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>#216442</title>
-  <!-- Google Fonts: Dancing Script -->
+  <title>Tarotlotnik 2026</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
   <style>
@@ -16,13 +17,13 @@
       justify-content: center;
       min-height: 100vh;
       margin: 0;
-      background-color: #89CFF0; /* baby blue */
+      background-color: #89CFF0;
       gap: 15px;
     }
 
     h1 {
       font-size: 48px;
-      color: #ffffff;
+      color: white;
       margin: 0;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     }
@@ -30,10 +31,9 @@
     h2 {
       font-family: 'Dancing Script', cursive;
       font-size: 28px;
-      color: #fff;
-      margin: 5px 0 30px 0;
+      color: white;
+      margin: 0 0 30px 0;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-      font-style: italic;
     }
 
     button {
@@ -68,7 +68,7 @@
     .name {
       font-size: 24px;
       font-weight: bold;
-      color: #000; /* czarny tekst pod zdjęciem */
+      color: black;
     }
   </style>
 </head>
@@ -77,7 +77,7 @@
   <h1>WYROCZNIA DELFICKA</h1>
   <h2>All the boys I've loved before</h2>
 
-  <button onclick="losuj()">LOSUJ</button>
+  <button id="losujBtn">LOSUJ</button>
 
   <div class="card" id="wynik">
     <img id="zdjecie" src="" alt="">
@@ -117,12 +117,17 @@
       { name: "HANIA LIS", img: "IMG_0845.jpeg" }
     ];
 
-    function losuj() {
+    const btn = document.getElementById("losujBtn");
+    const img = document.getElementById("zdjecie");
+    const nameBox = document.getElementById("nazwa");
+    const card = document.getElementById("wynik");
+
+    btn.addEventListener("click", () => {
       const los = osoby[Math.floor(Math.random() * osoby.length)];
-      document.getElementById("zdjecie").src = los.img;
-      document.getElementById("nazwa").innerText = los.name;
-      document.getElementById("wynik").style.display = "flex";
-    }
+      img.src = los.img;
+      nameBox.textContent = los.name;
+      card.style.display = "flex";
+    });
   </script>
 
 </body>
