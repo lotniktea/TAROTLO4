@@ -5,66 +5,111 @@
   <title>Losowanie osób</title>
   <style>
     body {
-      background: #111;
+      background: #0f0f14;
       color: white;
       font-family: Arial, sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
+      justify-content: center;
+      min-height: 100vh;
       margin: 0;
     }
 
-    .box {
-      text-align: center;
-    }
-
-    img {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 20px;
-      margin-top: 20px;
-      display: none;
-      box-shadow: 0 0 30px rgba(255,255,255,0.3);
+    h1 {
+      margin-bottom: 20px;
     }
 
     button {
       padding: 15px 30px;
       font-size: 18px;
-      border-radius: 30px;
       border: none;
+      border-radius: 10px;
       cursor: pointer;
-      background: white;
-      color: black;
+      background: #ff4d6d;
+      color: white;
+      margin-bottom: 30px;
     }
 
-    h2 {
-      margin-top: 20px;
+    button:hover {
+      background: #ff1f4b;
+    }
+
+    .card {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .card img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <div class="box">
-    <button onclick="losuj()">LOSUJ</button>
-    <h2 id="name"></h2>
-    <img id="photo" />
+  <h1>Losuj osobę</h1>
+  <button onclick="losuj()">LOSUJ</button>
+
+  <div class="card" id="wynik">
+    <img id="zdjecie" src="" alt="">
+    <div class="name" id="nazwa"></div>
   </div>
 
   <script>
     const osoby = [
-      { imie: "Filip", zdjecie: "filip.jpg" },
-      { imie: "Ania", zdjecie: "ania.jpg" },
-      { imie: "Kasia", zdjecie: "kasia.jpg" }
+      { name: "SZYMEK", img: "osoba1.jpg" },
+      { name: "RACIN", img: "racin.jpg" },
+      { name: "ŻUK", img: "żuk.jpg" },
+      { name: "BARTEK SZCZEPAN", img: "szczepan.jpg" },
+      { name: "BORZYM", img: "osoba5.jpg" },
+      { name: "KSEJ", img: "ksej.jpg" },
+      { name: "WOJTINI", img: "wojtini.jpg" },
+      { name: "SZYMON PEDAŁ KURWA", img: "osoba8.jpg" },
+      { name: "MARCEL CHWAST", img: "cwel.jpg" },
+      { name: "KULCZYK", img: "osoba10.jpg" },
+
+      { name: "OLAF BOREK", img: "osoba11.jpg" },
+      { name: "PABLO", img: "osoba12.jpg" },
+      { name: "KSAWIER", img: "osoba13.jpg" },
+      { name: "ANITA", img: "osoba14.jpg" },
+      { name: "NIKOLA", img: "osoba15.jpg" },
+      { name: "OLEK DRAŻA", img: "osoba16.jpg" },
+      { name: "KORNEL", img: "osoba17.jpg" },
+      { name: "MAGDA", img: "magda.jpg" },
+      { name: "LIWKA", img: "osoba19.jpg" },
+      { name: "KINGA", img: "osoba20.jpg" },
+
+      { name: "FIFI", img: "osoba21.jpg" },
+      { name: "WLADYSLAW", img: "osoba22.jpg" },
+      { name: "KARMEL", img: "osoba23.jpg" },
+      { name: "BARTEK SUNDAY", img: "osoba24.jpg" },
+      { name: "RĘBISZ", img: "osoba25.jpg" },
+      { name: "OSOBA 26", img: "osoba26.jpg" },
+      { name: "OSOBA 27", img: "osoba27.jpg" },
+      { name: "OSOBA 28", img: "osoba28.jpg" },
+      { name: "OSOBA 29", img: "osoba29.jpg" },
+      { name: "OSOBA 30", img: "osoba30.jpg" },
+
+      { name: "OSOBA 31", img: "osoba31.jpg" },
+      { name: "OSOBA 32", img: "osoba32.jpg" },
+      { name: "OSOBA 33", img: "osoba33.jpg" },
     ];
 
     function losuj() {
       const los = osoby[Math.floor(Math.random() * osoby.length)];
-      document.getElementById("name").innerText = los.imie;
-      const img = document.getElementById("photo");  
-      img.src = los.zdjecie;
-      img.style.display = "block";
+      document.getElementById("zdjecie").src = los.img;
+      document.getElementById("nazwa").innerText = los.name;
+      document.getElementById("wynik").style.display = "flex";
     }
   </script>
 
