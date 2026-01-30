@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Losowanie osób</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
+    .box {
+      text-align: center;
+    }
+
+    img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-top: 20px;
+      display: none;
+      box-shadow: 0 0 30px rgba(255,255,255,0.3);
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      background: white;
+      color: black;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <button onclick="losuj()">LOSUJ</button>
+    <h2 id="name"></h2>
+    <img id="photo" />
+  </div>
+
+  <script>
+    const osoby = [
+      { imie: "Filip", zdjecie: "filip.jpg" },
+      { imie: "Ania", zdjecie: "ania.jpg" },
+      { imie: "Kasia", zdjecie: "kasia.jpg" }
+    ];
+
+    function losuj() {
+      const los = osoby[Math.floor(Math.random() * osoby.length)];
+      document.getElementById("name").innerText = los.imie;
+      const img = document.getElementById("photo");  
+      img.src = los.zdjecie;
+      img.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
